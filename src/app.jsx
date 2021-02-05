@@ -3,9 +3,9 @@ import "./app.css";
 import VideoList from "./components/video_list/video_list";
 
 function App() {
-	const [videos, setVideos] = useState([]); //API
+	const [videos, setVideos] = useState([]); //펑션에서 state를 사용하게 하는 usestate API [변수데이터저장, 업데이트 함수]
+	// 콜백 (컴포넌트가 마운트 될때나 업데이트델때마다 호출되는 콜백함수)
 	useEffect(() => {
-		// 콜백 (마운트 될때, 업데이트델때마다 호출되는 콜백함수)
 		//포스트맨에서 mostpopuler 자바스크립트 패치 따오기
 		const requestOptions = {
 			method: "GET",
