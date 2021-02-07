@@ -4,7 +4,7 @@ import styles from "./video_item.module.css";
 // const VideoItem = (props) => <h1>{props.video.snippet.title}</h1>; //여기서 video는 list에 있는 보라 video
 const VideoItem = (
 	// props.video.snippet을 생략한것
-	{ video: { snippet } } //props 반복 하기 싫을때 (디컨스트럭팅)
+	{ video: { snippet } } //props 반복 하기 싫을때 {(디컨스트럭팅)}
 ) => (
 	<li className={styles.container}>
 		<div className={styles.video}>

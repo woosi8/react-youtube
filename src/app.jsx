@@ -4,6 +4,24 @@ import VideoList from "./components/video_list/video_list";
 import styles from "./app.module.css";
 function App() {
 	const [videos, setVideos] = useState([]); //펑션에서 state를 사용하게 하는 usestate API [변수데이터저장, 업데이트 함수]
+	const search = (query) => {
+		const requestOptions = {
+			method: "GET",
+			redirect: "follow",
+		};
+
+		fetch(
+			`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyDrnkGUQDzgHrAdkFYoT1aGE7Ds_Go3P94\n`,
+			requestOptions
+		)
+			.then((response) => response.json())
+			.then((result) =>
+				result.items.map((item) => ({ ...item, id: item.id.videoId }))
+			) // item의 id를 object가 아닌 primitive 문자열로 변환해준다.왜냐면 videoId는 오브젝트로 되어있기에
+			.then((items) => setVideos(items));
+		// .catch((error) => console.log("error", error));
+	};
+
 	// 콜백 (컴포넌트가 마운트 될때나 업데이트델때마다 호출되는 콜백함수)
 	useEffect(() => {
 		//포스트맨에서 mostpopuler 자바스크립트 패치 따오기
@@ -22,7 +40,7 @@ function App() {
 	}, []); // 마운트가 되었을때만 호출되게 [호출되기 원하는 변수의 목록]추가 ([] 비어있으면 한번만 호출해라)
 	return (
 		<div className={styles.app}>
-			<SearchHeader />
+			<SearchHeader onSearch={search} />
 			<VideoList videos={videos} />;
 		</div>
 	);
