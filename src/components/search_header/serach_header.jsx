@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import styles from "./serch_header.module.css";
+import styles from "./search_header.module.css";
 
 const SearchHeader = ({ onSearch }) => {
-	const inputRef = useRef();
+	//onSearch:  props로 받아와야지 ( 아래에 검색이벤트가 발생하면 onSearch 콜백함수를 불러 app에 query에 전달)
+	const inputRef = useRef(); //리액트훅에서 메모를 쓰기위한 useRef
 	const handleSearch = () => {
 		const value = inputRef.current.value;
 		onSearch(value);
