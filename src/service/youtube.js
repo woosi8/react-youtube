@@ -1,5 +1,6 @@
 class Youtube {
 	constructor(key) {
+		// API에서 공통적으로 쓰는것들
 		this.key = key;
 		this.getRequestOptions = {
 			method: "GET",
@@ -25,4 +26,5 @@ class Youtube {
 		return result.items.map((item) => ({ ...item, id: item.id.videoId }));
 	}
 }
+
 export default Youtube;
