@@ -20,6 +20,7 @@ function App({ youtube }) {
 			.then((videos) => setVideos(videos));
 	};
 
+	// useEffect:리액트에게 렌더링 후 컴포넌트가 무언가를 해야 한다고 지시.
 	useEffect(() => {
 		youtube
 			.mostPopular() // youtube클래스에서 가져온 mostpopular변수에서 videos를 가져온다
@@ -29,7 +30,7 @@ function App({ youtube }) {
 		<div className={styles.app}>
 			<SearchHeader onSearch={search} />
 			<section className={styles.content}>
-				{selectedVideo && ( //select비디오가 있다면 videodetail을 보여준다
+				{selectedVideo && ( //selectedVideo 있다면 선택된 videodetail을 보여준다
 					<div className={styles.detail}>
 						<VideoDetail video={selectedVideo} />
 					</div>

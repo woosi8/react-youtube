@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from "./search_header.module.css";
 
 const SearchHeader = ({ onSearch }) => {
-	const inputRef = useRef();
+	const inputRef = useRef(); // 메모 API 랜더링되어도 동일한 참조값을 유지해준다
 	const handleSearch = () => {
 		const value = inputRef.current.value;
 		onSearch(value);
