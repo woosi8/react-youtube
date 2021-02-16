@@ -1,14 +1,14 @@
-# Youtube with React
+# Youtube with React <img align="center" alt="React" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
 
 ## Introduction
 
-리액트를 활용해 유투브 API를 구현해 낸다.
+유튜브 APIs를 이용해 실제로 서버에서 데이터를 받아와 키워드 검색, 비디오 재생등 유튜브 프론트엔드를 클론코딩.
 
-필요한 컴포넌트를 각각 구분지어 구성한다.
+React Hooks + PostCSS를 활용하고, API 사용법, Postman, Restful API, Dependency Injection을 사용한다.
 
-## Components
+## 📁 Components
 
-### - app
+### app
 
 - vidoes : 비디오 리스트 API로 받아와서 펼치기(useEffect)
   useEffect : 리액트에게 렌더링 후 컴포넌트가 무언가를 해야 한다고 지시.
@@ -16,32 +16,36 @@
 - selectedVideo : 선택된 비디오 보여주기
 - search : SearchHeader에서 input,button이벤트(검색) 발생시 onSearch에 입력값을 가져와서 const search가 실행되어 selectedVideo에 저장
 
-### - search_header
+### search_header
 
 - onSearch값을 app에 전달
 - input에 onKeyPress 발생 시 이벤트 함수 handleSearch(입력값을 onSearch에 전달하는 함수)실행
 - button에 onClick 발생 시 onClick입력값을 전달하는 handleSearch 함수 실행
 
-### - video_list
+### video_list
 
 - videos, selectVideo, 그리고 selectedVideo 선택시 list를 아니면 grid를 보이는 display 전달
 - serch or mostPopular의 데이터를 맵핑으로 VideoItem에 전달
 
-### - video_item
+### video_item
 
 - video, onVideoClick,display 값을 받아온다
-- video thumbnails,title,channel을 받아서 디스플레이 해준다.
-- display가 list를 받아오면 list로 아니면 grid를 받아준다
+- video thumbnails,title,channel을 받아준다.
+- display가 list를 받아오면 list, 아니면 grid를 받아준다
+- video onClick 클릭시 app에 selectVideo에 선택된 video값이 전달.
 
-### - video_detail
+### video_detail
 
 - 선택된 비디오를 보여주고 설정하는 API.
-- video_item에서 onClick이 있으면 video가 video_list로 전달되서 app에 selectVideo에 설정된다. 그래서 selectedVideo에 값이 있게됨으로 VideoDetail에 - - - video가 전달되서 VideoDetail이 실행된다.
+- video_item에서 onClick이 있으면 video가 video_list로 전달되서 app에 selectVideo에 설정된다. 그래서 selectedVideo에 값이 있게됨으로 VideoDetail에 video가 전달되서 VideoDetail이 실행된다.
+- VideoDetail에 iframe을 youtube에서 가져와 className, src를 나의 정보로 바꿔준다.
 
-### - service
+### service
 
 - 다른 API에서 공통적으로 쓰이는 key,getRequestOptions 값을 state로 정의한다.
 - mostPopular, serch를 async로 promise를 설정 해 놓는다.
+- mostPopular,search함수에 fetch되는 주소값은 Youtube API에서 가져온 값으로 key는 index.js에 변수 youtube에서 가져온다.
+  env파일에 나의 고유 key 값을 넣어서 gitignore시켜서 외부에 유출되지 않게 보호해준다.
 
 # Getting Started with Create React App
 
