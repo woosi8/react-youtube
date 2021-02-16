@@ -9,6 +9,7 @@ function App({ youtube }) {
 	const [videos, setVideos] = useState([]); // 리액트훅 function component에서 state 사용하기
 	const [selectedVideo, setSelectedVideo] = useState(null); // 처음에는 null 선택된게 없으니
 
+	//VideoList onVideoClick이 발생되면 selectvideo를 받아온다
 	const selectVideo = (video) => {
 		setSelectedVideo(video);
 	};
