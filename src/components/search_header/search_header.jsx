@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./search_header.module.css";
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = memo(({ onSearch }) => {
 	const inputRef = useRef(); // 메모 API 랜더링되어도 동일한 참조값을 유지해준다
 	const handleSearch = () => {
 		const value = inputRef.current.value;
@@ -19,7 +19,12 @@ const SearchHeader = ({ onSearch }) => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
-				<img className={styles.img} src="/images/logo.png" alt="logo" />
+				{/* <img className={styles.img} src="./images/logo.png" alt="logo" /> */}
+				<img
+					className={styles.img}
+					src={process.env.PUBLIC_URL + "/images/logo.png"}
+					alt="logo"
+				/>
 				<h1 className={styles.title}>Youtube</h1>
 			</div>
 			<input
@@ -32,12 +37,13 @@ const SearchHeader = ({ onSearch }) => {
 			<button className={styles.button} type="submit" onClick={onClick}>
 				<img
 					className={styles.buttonImg}
-					src="/images/search.png"
+					src={process.env.PUBLIC_URL + "/images/search.png"}
+					// src={"./images/search.png"}
 					alt="search"
 				/>
 			</button>
 		</header>
 	);
-};
+});
 
 export default SearchHeader;
