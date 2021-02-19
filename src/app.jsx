@@ -28,7 +28,7 @@ function App({ youtube }) {
 						setLoading(false);
 						console.log("loading");
 					});
-			}, 10000);
+			}, 1000);
 		},
 		[youtube]
 	);
