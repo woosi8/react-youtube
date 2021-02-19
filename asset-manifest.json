@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-youtube/static/css/main.d757192a.chunk.css",
-    "main.js": "/react-youtube/static/js/main.8e589c14.chunk.js",
-    "main.js.map": "/react-youtube/static/js/main.8e589c14.chunk.js.map",
+    "main.js": "/react-youtube/static/js/main.baa1a2fe.chunk.js",
+    "main.js.map": "/react-youtube/static/js/main.baa1a2fe.chunk.js.map",
     "runtime-main.js": "/react-youtube/static/js/runtime-main.ae5c5db2.js",
     "runtime-main.js.map": "/react-youtube/static/js/runtime-main.ae5c5db2.js.map",
     "static/js/2.852a4965.chunk.js": "/react-youtube/static/js/2.852a4965.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.ae5c5db2.js",
     "static/js/2.852a4965.chunk.js",
     "static/css/main.d757192a.chunk.css",
-    "static/js/main.8e589c14.chunk.js"
+    "static/js/main.baa1a2fe.chunk.js"
   ]
 }
