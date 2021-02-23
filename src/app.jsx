@@ -3,6 +3,10 @@ import styles from "./app.module.css";
 import VideoList from "./components/video_list/video_list";
 import SearchHeader from "./components/search_header/search_header";
 import VideoDetail from "./components/video_detail/video_detail";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Home from "./components/routers/Home";
+import About from "./components/routers/About";
 
 function App({ youtube }) {
 	const [videos, setVideos] = useState([]); // 리액트훅 function component에서 state 사용하기
@@ -13,7 +17,6 @@ function App({ youtube }) {
 	const selectVideo = (video) => {
 		setSelectedVideo(video);
 	};
-
 	//SearchHeader에서 input,button이벤트 발생시 onSearch에 입력값을 가져와서 실행
 	const search = useCallback(
 		(query) => {
@@ -39,6 +42,7 @@ function App({ youtube }) {
 			.mostPopular() // youtube클래스에서 가져온 mostpopular변수에서 videos를 가져온다
 			.then((videos) => setVideos(videos)); //vidoes에 저장
 	}, [youtube]);
+
 	return (
 		<div className={styles.app}>
 			{loading && (
@@ -46,7 +50,14 @@ function App({ youtube }) {
 					<div className={styles.spinner}>Loading....</div>
 				</section>
 			)}
+			<Router>
+				<div>
+					<Route exact path="/" component={Home} />
+					<Route path="/about" component={About} />
+				</div>
+			</Router>
 			<SearchHeader onSearch={search} />
+
 			<section className={styles.content}>
 				{selectedVideo && ( //selectedVideo 있다면 선택된 videodetail을 보여준다
 					<div className={styles.detail}>
